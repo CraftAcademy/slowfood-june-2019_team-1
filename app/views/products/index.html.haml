@@ -4,9 +4,12 @@
   - @categories.each do |category|
     %h2= category.title
     - category.products.each do |product|
-      %li
-        = product.name
-        = product.description
-        = product.price
-      - if current_user.try(:admin?)
-        = link_to 'Edit'
+      .div{id: dom_id(product)}
+        %table
+          %td= product.name
+          %td= product.description
+          %td= product.price
+          %td= add_to_cart(product, 1, 'Add to cart')
+        - if current_user.try(:admin?)
+          = link_to 'Edit'
+
