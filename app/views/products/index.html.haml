@@ -1,5 +1,9 @@
 %h1 Menu for FoodComrade restaurant
 
+%div
+  - if current_user.try(:admin?)
+    = link_to "New Product", new_product_path
+
 %ul#categorieslist
   - @categories.each do |category|
     %h2= category.title
@@ -9,4 +13,5 @@
         = product.description
         = product.price
       - if current_user.try(:admin?)
-        = link_to 'Edit'
+        = link_to 'Edit', edit_product_path(product)
+        = link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?' }

@@ -9,7 +9,7 @@ Feature: Visitor can view menu
       | Starters      |
       | Main Courses  |
       | Desserts      |
-    Given the following products exists
+    And the following products exists
       | name          | description                     | price | category        |
       | garlic bread  | garlic, bread, butter           | 30    | Starters        |
       | margherita    | cheese, tomato sauce, basil     | 70    | Main Courses    |
