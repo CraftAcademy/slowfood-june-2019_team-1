@@ -1,8 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
+ContactInfo.destroy_all
 Product.destroy_all
 Category.destroy_all
+
+contact_info = ContactInfo.create(name: "Comrade", number: 070123456, address: "Sveavägen 16, Stockholm", content: "Everyone is equal")
+
 
 starter = Category.create(title: "Starters")
 Product.create(name: "Garlic Bread", description: "garlic, bread, butter", price: 30, category: starter )

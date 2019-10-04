@@ -1,0 +1,16 @@
+%h1 Contact information
+%ul#contactlist
+  - @contact_infos.each do |contact_info|
+    %br
+      %h1= contact_info.name
+      %strong Phone number:
+      = contact_info.number
+    %br
+      %strong Address:
+      = contact_info.address
+    %br
+      %strong About us:
+      = contact_info.content
+    %br
+    - if current_user.try(:admin?)
+      = link_to 'Edit', edit_contact_info_path(contact_info)
